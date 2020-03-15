@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="page-header">Profiles</h1>
+{% include 'flash_messages.html' %}
+
+{% for user in users %}
+<div class = "rectangle2 less-space">
+    <div class="row">
+        <div class="col-3">
+            <img class="prof_pic2" src="{{ url_for('static', filename="uploads/"+user.photo) }}" height="160" width="170">
+        </div>
+
+        <div class="col-5">
+            <h2 class = "heading2 more-space">{{user.first_name}} {{user.last_name}}</h2>
+            <p class = "thicker"><img class="icon"src="{{ url_for('static', filename='gender.png') }}" height="25" width="25">{{user.gender}}</p>
+            <p class = "thicker"><img class="icon"src="{{ url_for('static', filename='placeholder.png') }}" height="25" width="25">{{user.location}}</p>
+        </div>
+
+        <div class="col-sm">
+            <button class="btn btn-primary4" type="submit" onclick="window.location.href='{{ url_for( 'act_profile' , id=user.id ) }}';"> View Profile</button>
+        </div>
+      </div>
+      
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class = "head" id = "rectangle">
+    <div class="row">
+        <div class="col-4">
+            <img class="prof_pic" src="{{ url_for('static', filename="uploads/"+act.photo) }}" height="180" width="190">
+        </div>
+        <div class="col-7">
+            <span class="details">
+                <h2 class = "heading">{{act.first_name}} {{act.last_name}}</h2>
+                <p><img class="icon"src="{{ url_for('static', filename='email.png') }}" height="20" width="20">{{act.email}}</p>
+                <p><img class="icon"src="{{ url_for('static', filename='placeholder.png') }}" height="20" width="20">{{act.location}}</p>
+                <p><img class="icon" src="{{ url_for('static', filename='calendar.png') }}" height="20" width="20">Joined on {{act.created_on}}</p>
+            </span>
+        </div>
+        
+
+    <div class = "base">
+        <p class = "abt_head"><b>About Me</b> </p> 
+        <p class = "about">{{act.bio}} </p> 
+
+        <div class = "space"></div>
+
+        <div class = "btn btn-primary1">
+            Send Message
+        </div>
+        <div class = "btn btn-primary2" >
+            Follow
+        </div>
+    </div>    
+</div>
+{% endblock %}
